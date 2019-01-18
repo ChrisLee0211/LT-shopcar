@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/index.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- header区域 -->
+    <header class="header">
+        <div class="logo"></div>
+        <nav class="nav">
+            <ul>
+                <li>课程</li>
+                <li class="new-icon" style="background-color: #363c41">职业路径<div class="icon"></div></li>
+                <li>实战</li>
+                <li>猿问</li>
+                <li>手记</li>
+            </ul>
+        </nav>
+        <div class="user"><img src="imgs/ava.jpg" alt=""></div>
+        <div class="message"><div class="user-message"></div></div>
+        <div class="shop"><div class="user-shop"></div></div>
+        <div class="search">
+            
+                <input type="text" class="form">
+                <a href="" class="search-submit"></a>
+        
+        </div>
+    </header>
+    <!-- banner区域 -->
+    <section class="banner"></section>
+    <!-- 商品结算区域 -->
+    <section class="pay">
+        <div class="main_item">
+            <div class="cost_select">
+                <div class="selector">
+                    <input id="select-all" type="checkbox" class="select-item select-all" checked="checked">&nbsp;全选
+                </div>
+                <div class="good">商品名称</div>
+                <div class="total">总价</div>
+                <div class="unit_price">单价</div>
+                <div class="quantity">数量</div>
+                <div class="operation">操作</div>
+            </div>
+            <div id="cost_item" class="cost_item">
+                 <div class="selector">
+                    <input type="checkbox" class="select-item cost-box" checked="checked">&nbsp;
+                </div>
+                <div class="good">
+                    <img class="good_image" src="imgs/g1.jpg" alt="">
+                    <span class="good_name">前端小白成长日记</span>
+                </div>
+                <div class="total">￥&nbsp;<span class="total_num">396</span></div>
+                <div class="unit_price">￥&nbsp;<span class="price_num">396</span></div>
+                <div class="quantity">
+                    <input type="button" class="subtract" value="-">
+                    <input type="text" class="quantity_num" value="1">
+                    <input type="button" class="add" value="+">
+                </div>
+                <div class="operation"><span class="del">删除</span></div>
+            </div>
+            <div class="cost_item">
+                 <div class="selector">
+                    <input type="checkbox" class="select-item cost-box" checked="checked">&nbsp;
+                </div>
+                <div class="good">
+                    <img class="good_image" src="imgs/g2.jpg" alt="">
+                    <span class="good_name">前端小白成长日记</span>
+                </div>
+                <div class="total">￥&nbsp;<span class="total_num">396</span></div>
+                <div class="unit_price">￥&nbsp;<span class="price_num">396</span></div>
+                <div class="quantity">
+                    <input type="button" class="subtract" value="-">
+                    <input type="text" class="quantity_num" value="1">
+                    <input type="button" class="add" value="+">
+                </div>
+                <div class="operation"><span class="del">删除</span></div>
+            </div>
+            <div class="cost_item">
+                <div class="selector">
+                    <input type="checkbox" class="select-item cost-box" checked="checked">&nbsp;
+                </div>
+                <div class="good">
+                    <img class="good_image" src="imgs/g1.jpg" alt="">
+                    <span class="good_name">前端小白成长日记</span>
+                </div>
+                <div class="total">￥&nbsp;<span class="total_num">396</span></div>
+                <div class="unit_price">￥&nbsp;<span class="price_num">396</span></div>
+                <div class="quantity">
+                    <input type="button" class="subtract" value="-">
+                    <input type="text" class="quantity_num" value="1">
+                    <input type="button" class="add" value="+">
+                </div>
+                <div class="operation"><span class="del">删除</span></div>
+            </div>
+            <div class="cost_item" style="border-bottom: none">
+             <div class="selector">
+                    <input type="checkbox" class="select-item cost-box" checked="checked">&nbsp;
+                </div>
+                <div class="good">
+                    <img class="good_image" src="imgs/g2.jpg" alt="">
+                    <span class="good_name">前端小白成长日记</span>
+                </div>
+                <div class="total">￥&nbsp;<span class="total_num">396</span></div>
+                <div class="unit_price">￥&nbsp;<span class="price_num">396</span></div>
+                <div class="quantity">
+                    <input type="button" class="subtract" value="-">
+                    <input type="text" class="quantity_num" value="1">
+                    <input type="button" class="add" value="+">
+                </div>
+                <div class="operation"><span class="del">删除</span></div>
+            </div>
+        </div>
+        <div class="total_price">
+            <div class="pay_item">
+                去结算
+            </div>
+            <div class="should_pay">
+                应付金额：<span style="color:red;font-size:20px">￥&nbsp;&nbsp;</span >
+                    <span class="total_pay" style="color:red;font-size:20px">1584</span>
+            </div>
+        </div>
+    </section>
+    <!-- footer区域 -->
+    <footer class="footer">
+        <nav class="footer_nav">
+            <ul class="address">
+                <li>网站首页</li>
+                <li>企业合作</li>
+                <li>人才招聘</li>
+                <li>联系我们</li>
+                <li>讲师招募</li>
+                <li>常见问题</li>
+                <li>意见反馈</li>
+                <li>慕课大学</li>
+                <li>友情链接</li>
+            </ul>
+            <div class="footer_desc">Copyright&nbsp;&copy;&nbsp;2017&nbsp;imooc.com&nbsp;All&nbsp;Rights&nbsp;Reserved</div>
+        </nav>
+        <div class="footer_logo">
+            <div class="wechat"></div>
+            <div class="weibo"></div>
+            <div class="qq"></div>
+        </div>
+    </footer>
+    <script src="js/LT-shopcar.js"></script>
+    <script>
+    var shopcar_module = new shopcar()
+    shopcar_module.init()
+    
+    </script>
+</body>
+</html>
