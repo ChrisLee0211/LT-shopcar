@@ -45,9 +45,10 @@ A demo of shopping cart. It`s easy to add a  module like shopping cart by just o
 在引用后，手动调用一次入口函数完成加载，示例：
 ```html
 <script src="js/LT-shopcar.js"></script>
-    <script>
+<script>
     var shopcar_module = new shopcar();
     shopcar_module.init()
+</script>
 ```
 
 ## Todo：
