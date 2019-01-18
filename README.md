@@ -36,7 +36,7 @@ A demo of shopping cart. It`s easy to add a  module like shopping cart by just o
 | 单选框     | cost-box      |   勾选每个商品条目 |
 | 商品总价 | total_num      |    显示每个条目中商品的总价 |
 | 商品单价       | price_num | 显示每个条目中商品的单价 |
-| 商品数量(type="text")     | quantity_num      |   显示每个条目中商品的单价 |
+| 商品数量(type="text")     | quantity_num      |   显示每个条目中商品的数量 |
 | “+”按钮 | add      |    点击后商品数量+1 |
 | “-”按钮 | subtract      |    点击后商品数量-1 |
 | 结算金额       | total_pay | 显示整个购物车的结算金额 |
