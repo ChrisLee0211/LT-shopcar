@@ -31,6 +31,10 @@ shopcar.prototype.chooseDom = function(){
   }
     for(var i = 0 ; i < costItem.length; i++){
         costItem[i].onclick=function(){
+            var arr = [];
+            for(var i = 0; i < costItem.length; i++){
+                arr.push(costItem[i].checked)
+            }
             if(judgement.isChoosed(this)){
                 this.removeAttribute("checked")
                 this.checked=false
@@ -45,6 +49,12 @@ shopcar.prototype.chooseDom = function(){
                 this.setAttribute("checked","checked");
                 this.checked=true
                 operate.totalPay()
+                if(arr.indexOf(false) == -1){
+                    selectAll.setAttribute("checked","checked")
+                    selectAll.checked=true
+                }else{
+                    selectAll.checked=false
+                }
             }
             
         }
