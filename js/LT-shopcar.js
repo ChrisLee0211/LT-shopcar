@@ -1,28 +1,29 @@
 function shopcar(){}
 shopcar.prototype.getDom = function(){
-    // 获取全选按钮
-    selectAll = document.querySelector(".select-all");
-     
+    // // 获取全选按钮
+    selectAll = domUtil.get(".select-all");
+
     // 获取每一个选择框
-    costItem = document.querySelectorAll(".cost-box");
-     
+    costItem = domUtil.getAll(".cost-box");
+
     //  获取每个商品的总价
-    total_num = document.querySelectorAll(".total_num");
+    total_num = domUtil.getAll(".total_num");
     
     // 获取每个商品的单价
-    price_num = document.querySelectorAll(".price_num");
-    
+    price_num = domUtil.getAll(".price_num");
+   
     // 获取每个商品的数量
-    quantity_num = document.querySelectorAll(".quantity_num")
-
+    quantity_num = domUtil.getAll(".quantity_num")
+    
     // 获取每一个增加按钮
-    add_btn = document.querySelectorAll(".add")
-
+    add_btn = domUtil.getAll(".add")
+   
     // 获取每一个减少按钮
-    subtract_btn = document.querySelectorAll(".subtract")
-
+    subtract_btn = domUtil.getAll(".subtract")
+    
     // 获取结算价格
-    final_price = document.querySelector(".total_pay")
+    final_price = domUtil.get(".total_pay")
+    
 }
 
 shopcar.prototype.chooseDom = function(){
@@ -31,6 +32,10 @@ shopcar.prototype.chooseDom = function(){
   }
     for(var i = 0 ; i < costItem.length; i++){
         costItem[i].onclick=function(){
+            var arr = [];
+            for(var i = 0; i < costItem.length; i++){
+                arr.push(costItem[i].checked)
+            }
             if(judgement.isChoosed(this)){
                 this.removeAttribute("checked")
                 this.checked=false
@@ -45,6 +50,12 @@ shopcar.prototype.chooseDom = function(){
                 this.setAttribute("checked","checked");
                 this.checked=true
                 operate.totalPay()
+                if(arr.indexOf(false) == -1){
+                    selectAll.setAttribute("checked","checked")
+                    selectAll.checked=true
+                }else{
+                    selectAll.checked=false
+                }
             }
             
         }
@@ -86,6 +97,93 @@ shopcar.prototype.numChange = function () {
         }
     }
 }
+
+// DOM元素兼容性方法
+var domUtil = {
+    // 获取单一DOM元素
+    get: function(query) {
+        var _this = this;
+        if(!document.querySelector) {
+            return document.querySelector(query);
+        } else {
+            var elements = document;
+            var queryStrArray = query.split(/ +/);
+            console.log(queryStrArray)
+            for(var i = 0; i < queryStrArray.length; i++) {
+                var domName = queryStrArray[i];
+                elements = _this.getElementsOfParentNode(domName, elements);
+            }
+            if(elements.length == 1) {
+                return elements[0];
+            } else {
+                return elements;
+            }
+        }
+    },
+    // 获取DOM元素集合
+    getAll: function (query) {
+        if(!document.querySelectorAll) {
+            return document.querySelectorAll(query);
+        }else{
+            var className = query.slice(1)
+            var children = document.getElementsByTagName('*');                   //获取html中所有的DOM节点 
+      var elements = [];                                                                //用一个空数组存放要获取的class类名
+      for (var i = 0; i < children.length; i++) {
+          var child = children[i];                                                        
+          var classNames = child.className.split(' ');                                    //将所有的class节点保存在一个数组之中
+          for (var j = 0; j < classNames.length; j++) {                                 //遍历循环，将满足要求的class存入elements空数组中
+              if (classNames[j] == className) {
+                  elements.push(child);
+                  break;
+              }
+          }
+      }
+      return elements;
+        }
+    },
+    // 获取DOM元素
+    getElementsOfParentNode: function(domName, parentNode) {
+        var _this = this;
+        parentNode = parentNode || document;
+        domName = domName.trim();
+        var regExps = {
+            id: /^#/,
+            class: /^/
+        };
+        if(regExps.id.test(domName)) {
+            domName = domName.replace(/^\#/g, "");
+            return parentNode.getElementById(domName);
+        } else if(regExps.class.test(domName)) {
+            domName = domName.replace(/^./g, "");
+            return _this.getElementsByClassName(domName, parentNode);
+        } else {
+            return parentNode.getElementsByTagName(domName);
+        }
+    },
+    // 获取class元素的兼容方法
+    getElementsByClassName: function(className, parentNode) {
+        if(parentNode.getElementsByClassName){
+            return parentNode.getElementsByClassName(className);
+        } else {
+            className = className.replace(/^ +| +$/g,"");
+            var classArray = className.split(/ +/);
+            var eles = parentNode.getElementsByTagName("*");
+            for(var i = 0;i < classArray.length; i++){
+                var classEles = [];
+                var reg = new RegExp("(^| )" + classArray[i] + "( |$)");
+                for(var j = 0;j < eles.length; j++){
+                    var ele = eles[j];
+                    if(reg.test(ele.className)){
+                        classEles.push(ele);
+                    }
+                }
+                eles = classEles;
+            }
+            return eles;
+        }
+    }
+};
+
 // 判断功能模块
 var judgement = {
     // 是否已选
@@ -171,7 +269,6 @@ var operate = {
         var chooseList = [];
         for(var i = 0; i < costItem.length; i++){
             if(judgement.isChoosed(costItem[i])){
-                console.log(judgement.isChoosed(costItem[i]))
                 costItem[i].index = i;
                 var choosed_index = costItem[i].index
                 var choosed_price = total_num[choosed_index].innerHTML;
@@ -179,7 +276,6 @@ var operate = {
                 
             }
         }
-        console.log(chooseList)
         var total_pay = operate.addTotalPay(chooseList);
         final_price.innerHTML = total_pay
 
