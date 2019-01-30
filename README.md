@@ -19,8 +19,8 @@ A demo of shopping cart. It`s easy to add a  module like shopping cart by just o
 - 修复了复选框全部选中而全选框无法自动打勾的bug
 
 ## v1.1（2019.01.30）：
-· 封装了更原始的DOM方法来替换原来的querySelector
-· 新增兼容IE8及其以下的浏览器
+- 封装了更原始的DOM方法来替换原来的querySelector
+- 新增兼容IE8及其以下的浏览器
 
 ## 使用说明：
 这个插件具备了一般购物车应有的功能如商品金额自动计算、数量增减更新等，目前还处于初始阶段，后续会慢慢完善功能。另外，整个DEMO不必要完全下载，只需要使用其中的js文件即可，内部已经封装好了方法，附上html和less文件是为了更好地理解和演示功能。
