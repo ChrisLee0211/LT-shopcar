@@ -61,5 +61,4 @@ A demo of shopping cart. It`s easy to add a  module like shopping cart by just o
 ## Todo：
 - 完善好“删除”条目功能；
 - 考虑增加一个“是否使用优惠券”的勾选框功能，通过ajax和后台校验有无优惠券；
-- 在结算栏中增加已选商品数量；
 - 增加传参调用的使用方法，避免干预使用者的样式命名。
